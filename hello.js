@@ -221,3 +221,71 @@ function orderBasedOnAge(passenger){
 
 
 //constructor
+function Person(name, age){
+    this.name = name;
+    this.age = age;
+}
+
+var person1 = new Person("ram",20);//object created
+var person2 = new Person("shyam",21);
+
+console.log(person1.age);
+console.log(typeof person1);
+person1.dob = "02012000";
+console.log(person1.dob);// You can still add new properties to the object
+
+//Constructing with compact params
+function Student(params){//since there is no type here which means two objects can have different data type for the same property
+    this.name = params.name;
+    this.age = params.age;
+}
+
+const args1 = {
+    "name": "vijay",
+    "age": 15
+};
+
+const args2 = {
+    "name": "hari",
+    "age": "18"
+};
+
+var student1 = new Student(args1);
+var student2 = new Student(args2);
+console.log(student1.age);
+console.log(student2.age);
+
+console.log(student1 instanceof Student);
+console.log(student1 instanceof Person);
+console.log(person1 instanceof Person);
+console.log(person1 instanceof Student);
+
+
+//Date objects
+var d = new Date();
+console.log(d);
+console.log(d.toString());
+console.log(d.getFullYear());
+
+
+//array with constructor
+var arr = new Array(3);//alternative is [] to create an empty array
+arr[0] = "rajesh";
+console.log(arr[0]);
+
+
+//Prototypes
+Student.prototype.school = "academy school";// adding common property
+Student.prototype.visit = function () {// adding common method
+    console.log("Visit school "+this.school);
+}
+
+student1.visit();
+
+student2.visit = function () {//override the method for particular class. override works at object level not at class level
+    console.log("Visit different school");
+}
+
+student2.visit();
+
+//we can add new method to the prototype after creating object, all the objects will have access to the new prototype method
