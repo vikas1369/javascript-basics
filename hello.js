@@ -106,7 +106,7 @@ var student ={
     address : "mumbai",
     grade : 70,
     isFirstClass: function () {//This function doesn't have any name - these are called anonymous function
-        if(this.grade>=70){//this is used because we want this function to know that we are referring to the grade property which belongs to this class
+        if(this.grade>=70){//this is used because we want this function to know that we are referring to the grade property which belongs to this object
             return true;
         }else{
             return false;
@@ -115,7 +115,7 @@ var student ={
 }
 
 console.log(student.grade);// to access the property of the object
-console.log(student["grade"]);//This is a alternative way to access the property of the object it will work even when we have "gra"+"de"
+console.log(student["grade"]);//This is an alternative way to access the property of the object it will work even when we have "gra"+"de"
 console.log(student["gra"+"de"]);
 console.log(student.isFirstClass());
 
@@ -269,7 +269,10 @@ console.log(d.getFullYear());
 
 
 //array with constructor
-var arr = new Array(3);//alternative is [] to create an empty array
+var arr = new Array(3);//alternative is [] to create an array
+//if not size is specified it creates 0 size array
+//if only one parameter is specified it creates array of that particular size
+//if more than one parameters are specified then it creates array with those elements
 arr[0] = "rajesh";
 console.log(arr[0]);
 
@@ -289,3 +292,42 @@ student2.visit = function () {//override the method for particular class. overri
 student2.visit();
 
 //we can add new method to the prototype after creating object, all the objects will have access to the new prototype method
+
+//arrow function
+var addNum = (a,b) => (a+b);//we can skip writing return if it is a single statement in function body
+
+console.log(addNum(4,5));
+
+//map function for an array
+var students = ["mark","sam","john"];
+var newStudent = students.map((student) => {// map function
+   return student+" good";
+});
+console.log(newStudent);
+
+var newStudents = students.map((student) => ({"name":student}));//create objects using the map function
+console.log(newStudents);
+
+//map function can also be written like following
+var someNumbers = [1,2,3,4];
+squareFunction = function(number){
+    return number*number;
+}
+
+var squaredNumbers = someNumbers.map(squareFunction);
+console.log(squaredNumbers);
+
+
+class Users{
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    sayHello(){
+        console.log("Hello");
+    }
+}
+
+var user1 = new Users("raj",40);
+console.log(user1);
+user1.sayHello();
