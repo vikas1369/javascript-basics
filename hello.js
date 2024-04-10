@@ -346,3 +346,24 @@ const {name:studentName, age} = {
 console.log(studentName);
 console.log(age);
 
+
+//spread operator
+//array
+const employeeIds = [123,124];
+const newEmployeeIds = [453,678];
+
+//array
+const mergedEmployeeIds = [...employeeIds, ...newEmployeeIds];//This creates an array with combined elements
+console.log(mergedEmployeeIds);
+
+//object
+const employee ={
+    "name": "vijay",
+    "age": 27
+}
+
+const extendedEmployee = {
+    "id": 122233,
+    ...employee
+}
+console.log(extendedEmployee);
