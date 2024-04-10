@@ -331,3 +331,18 @@ class Users{
 var user1 = new Users("raj",40);
 console.log(user1);
 user1.sayHello();
+
+//destructuring
+//array
+const [firstName,lastName] = ["Vikas","Yadav"];
+console.log(firstName);
+console.log(lastName);
+
+//object
+const {name:studentName, age} = {
+    "name":"Vijay",
+    "age": 23
+}
+console.log(studentName);
+console.log(age);
+
